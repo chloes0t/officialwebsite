@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="background_styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+    <script src="script.js" defer></script>
+    <title>Dylan Tremmel | Google Sheet Guide</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="boilerplate.html">
+        <div class="brand-title" style="font-family: 'Orbitron'';">
+          <b style="color: #64AAFA">dylan</b><b style="color: #FFBC3F;">Tremmel</b>
+        </div>
+      </a>
+      <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </a>
+      <div class="navbar-links">
+        <ul>
+          <li>
+            <a href="boilerplate.html">Home</a>
+          </li>
+          <li>
+            <a href="https://github.com/dylans0gt">About</a>
+          </li>
+          <li>
+            <a href="https://github.com/dylans0gt">GitHub</a>
+          </li>
+          <li>
+            <a href="https://github.com/dylans0gt">Projects</a>
+          </li>
+          <li>
+            <a href="newproj.html">New Project</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section id="section-1">
+      <h1>Problem!</h1>
+      <br>
+      <h3>The pet store was hosting a charity event and decided to use Google Sheets as a way to record each donation made. Obviously, multiple customers contributed over the course of a day, but how is each individual donation tracked and how can the total be calculated? The long way of doing this is to keep on making new cells or updating the total each and every time a donation is made, which can get messy and cost a lot of time that could be spent doing other things.</h3>
+      <br>
+      <h2>Thought process:</h2>
+      <br>
+      <p>I knew how to sum an array of numbers, so I figured I could convert the numerical contents of a single cell into an array, separate them by spaces, and sum them.</p>
+      <br>
+      <p>I did so by implementing the following formula. (NOTE: This is a demo, not the actual donation sheet. That could not be shown for security reasons.)</p>
+      <br>
+      <p id="code-snippet" style="background-color: rgba(0,1,1,0.5); width:30%;">=arrayformula(sum(value(split(cell," "))))</p>
+      <br>
+      <img src="file:///Users/dylantremmel/Desktop/Screen%20Shot%202022-11-21%20at%2012.16.51%20PM.png" alt="array solution" style="width:450px; height: 100px;">
+      <br>
+      <h3>Result:</h3>
+      <img src="file:///Users/dylantremmel/Desktop/Screen%20Shot%202022-11-21%20at%2012.18.15%20PM.png" alt="array solution result" style="width:450px; height: 100px;">
+      <p></p>
+    </section>
+    <br>
+    <br>
+    <section id="section-2">
+      <h1>Problem!</h1>
+      <br>
+      <h3>An event happened that requires us to come up with new prices for products and adding .99 cents to the prices is conventional.</h3>
+      <br>
+      <h2>Thought process:</h2>
+      <br>
+      <p>I could use the round function to round the supply price to the nearest tenth and then convert it to a string so I can concatenate it with the appended string ".99".</p>
+      <br>
+      <p>I did so by implementing the following formula. (NOTE: This is a demo, not the actual sheet. That could not be shown for security reasons.)</p>
+      <br>
+      <p id="code-snippet" style="background-color: rgba(0,1,1,0.5); width:30%;">=value(concat(rounddown(cell),".99"))</p>
+      <br>
+      <img src="file:///Users/dylantremmel/Desktop/Screen%20Shot%202022-11-21%20at%2012.33.20%20PM.png" alt="array solution" style="width:450px; height: 100px;">
+      <br>
+      <h3>Result:</h3>
+      <img src="file:///Users/dylantremmel/Desktop/Screen%20Shot%202022-11-21%20at%2012.33.56%20PM.png" alt="array solution result" style="width:450px; height: 100px;">
+      <p></p>
+    </section>
+    <br>
+    <br>
+    <section id="section-3">
+      <h1>Useful Formula Summary</h1>
+      <p>Here is the summary of useful formulas I shared with my coworkers in case they were in a situation like the ones described above.</p>
+      <img src="file:///Users/dylantremmel/Desktop/Screen%20Shot%202022-11-21%20at%2012.35.44%20PM.png" alt="summary image" style="width:450px; height: 300px;">
+    </section>
+    <br>
+    <br>
+    <section id="section-4">
+      <h1>Animal Babysitting Schedule/Cost Calculation</h1>
+      <br>
+      <p>Although we have yet to implement this, I recently made a spreadsheet that stores necessary information about customers and calculates the cost (without tax) of boarding an animal at our store by first calculating the number of nights stayed, and then factoring in additional costs like nail trimmings, playtime sessions, cage setup costs, etc.</p>
+      <br>
+      <p>NOTE: Names and numbers were made up for this demo for the sake of security.</p>
+      <br>
+      <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTYeCj1oHeepbMLuG41e3OsWuvdFy-Qb1Fr9-8nqZSt6ehKK6pBVqKQHrHIu4ytv2DDWb5oYIEOQ0Ho/pubhtml" style="width:650px; height: 500px;"></iframe>
+      <p>Formulas used:</p>
+      <br>
+      <p id="code-snippet">=QUERY(BoardingInfo!A$3:G$15,"Select A (cell containing owner's name from info sheet) where C contains '"& [cell containing animal name] &"' ",0)</p>
+      <br>
+      <p id="code-snippet">=datedif(E2,F2,"d")*G2+(H2+I2+J2+K2)</p>
+      <br>
+      <h2>Future Edit - Advanced Calculation that pulls all the information from the other sheets in an SQL-like fashion.</h2>
+      <br>
+      <p id="code-snippet"> =datedif(E2,F2,"d")*(((H2*(QUERY(BoardingCosts!A1:B24,"Select B where A contains '"& H1 &"' ",0))) <br>+(QUERY(BoardingCosts!A2:B11,"Select B where A contains '"& G2 &"' ",0) <br>+(I2*(QUERY(BoardingCosts!A1:B13,"Select B where A contains '"& I1 &"' ",0))) <br>+(J2*(QUERY(BoardingCosts!A1:B13,"Select B where A contains '"& J1 &"' ",0))) <br>+(K2*(QUERY(BoardingCosts!A1:B13,"Select B where A contains '"& K1 &"' ",0))) <br>+(L2*(QUERY(BoardingCosts!A1:B13,"Select B where A contains '"& L1 &"' ",0)))))) </p>
+    </section>
+    <br>
+    <br>
+    <section id="section-5">
+      <h1>Video demo of Google Sheets Query Function</h1>
+      <br>
+      <p>Periodically, my coworker has to copy corresponding prices from a pdf document to a google sheet. I realized that if only the product distributors sent us the files in .xls format or similar, we would not have to keep switching back and forth between tabs. Instead, the provided data can be queried how I demonstrated in the video below:</p>
+      <br>
+      <video autoplay loop muted plays-inline style="width:500px;height:500px;">
+        <source src="file:///Users/dylantremmel/Desktop/sqldemo.mp4" type="video/mp4" class="back-video">
+      </video>
+    </section>
+  </body>
+  <style>
+    body {
+      color: white;
+    }
+
+    #section-1 {
+      margin-top: 30px;
+      font-family: 'Aldrich';
+    }
+
+    #section-2 {
+      font-family: 'Aldrich';
+    }
+
+    #section-3 {
+      font-family: 'Aldrich';
+    }
+
+    #section-4 {
+      font-family: 'Aldrich';
+      display: inline-block;
+    }
+
+    nav {
+      overflow: auto;
+      font-family: 'Orbitron';
+    }
+
+    #code-snippet {
+      background-color: rgba(0, 1, 1, 0.5);
+      width: 30%;
+    }
+
+    .navbar {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000005;
+      color: white;
+    }
+
+    .brand-title {
+      font-size: 1.5rem;
+      margin: .5rem;
+    }
+
+    .navbar-links {
+      height: 100%;
+    }
+
+    .navbar-links ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-links li {
+      list-style: none;
+    }
+
+    .navbar-links li a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 1rem;
+    }
+
+    .navbar-links li:hover {
+      background-color: #555;
+    }
+
+    .toggle-button {
+      position: absolute;
+      top: .75rem;
+      right: 1rem;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+    }
+
+    .toggle-button .bar {
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 800px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .toggle-button {
+        display: flex;
+      }
+
+      .navbar-links {
+        display: none;
+        width: 100%;
+      }
+
+      .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .navbar-links ul li {
+        text-align: center;
+      }
+
+      .navbar-links ul li a {
+        padding: .5rem 1rem;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      z-index: 1;
+      background-color: #404040;
+      background-size: 400% 400%;
+      width: 100%;
+      height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+  <script>
+    const toggleButton = document.getElementsByClassName('toggle-button')[0]
+    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+    toggleButton.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active')
+    })
+  </script>
+</html>

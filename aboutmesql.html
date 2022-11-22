@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="officialwebsite.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+    <title>Dylan Tremmel | About Me</title>
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+      <nav>
+        <ul>
+          <a href="boilerplate.html">
+            <li id="home">Home/</li>
+          </a>
+          <a href="projects.html">
+            <li id="about">Projects/</li>
+          </a>
+          <a href="https://github.com/dylans0gt">
+            <li id="projects">GitHub</li>
+          </a>
+        </ul>
+      </nav>
+      <main>
+        <h1>
+          <b style="color: #FADF48;">A</b><b style="color: #48A9FA;">bout%</b>
+          <span class="cursor">|</span>
+        </h1>
+        <h3>Who am I?</h3>
+        <section id="work">
+          <ul>
+            <li>
+              <p>I'm a junior at Drew University pursuing a double major in Computer Science & Cyber Security. <br>
+                <br>On top of that, I have been working full-time for 2 years at a local pet store, fulfilling roles from package preparation and customer service to in-house technological support and data entry. <br> There were several occasions where I came up with complex <a href="googlesheetguide.html">Google Sheets formulas</a> using my understanding of programming concepts in order to make data collection and aggregation more efficient. <br> I also demonstrate mastery with the command line across multiple platforms, which came in handy when I was tasked with diagnosing network errors, locating and connecting devices, and downloading files onto removable drives without compromising the security of our computers at the pet store. <br>
+                <br>
+        </section>
+        <br>
+        <section id="school"> At university, I was elected to be the secretary of the Computer Science Club. As soon as I was elected, I built a sophisticated and highly efficient spreadsheet to track the attendance of people who would show up to meetings. I also made a Google Calendar and sent it to all members of the club so they can stay up to date with our events and meetings, and I made a folder on Google Drive to store all of our documents for the 2022-2023 academic year. <br> Since my two areas of expertise are cyber security and database technology, I intend to give a few presentations; one on how to identify phishing emails at the source and prevent phishing attacks, and one on how to use Python code to scrape data from the internet and put it into an SQL database for analysis. </p>
+          </li>
+          </ul>
+        </section>
+        <br>
+        <h2>Specialized Knowledge/Skills</h2>
+        <br>
+        <table>
+          <tr>
+            <th>Cyber Security</th>
+            <th>Web Development</th>
+            <th>Administration</th>
+            <th>Programming</th>
+          </tr>
+          <tr>
+            <td>Advanced: NMAP, Wireshark, netcat, Metasploit, Routersploit, Social Engineering Toolkit, SQLMap, Burpsuite</td>
+            <td>Advanced: HTML, CSS, Javascript, PhP</td>
+            <td>Linux, Powershell, phpMyAdmin</td>
+            <td>SQL, Java, Python</td>
+          </tr>
+          <tr>
+            <td>Intermediate: Ettercap, Airmon-ng, Aircrack-ng, John the Ripper</td>
+            <td>Beginner: Bootstrap, ReactJS</td>
+            <td>Intermediate: OracleDB</td>
+            <td>Intermediate: C/C++</td>
+          </tr>
+        </table>
+        <br>
+        <!--<a style="color:pink;" href="" download="Tremmel_Resume">Click to download my full resume.</a>-->
+      </main>
+    </div>
+    </div>
+  </body>
+  <style>
+    table,
+    th,
+    td {
+      color: yellow;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: rgba(0, 100, 120, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      z-index: 1;
+      background: linear-gradient(-90deg, black, darkblue, black, black);
+      background-size: 400% 400%;
+      width: 100%;
+      height: 100vh;
+      animation: background_animation 13s infinite;
+    }
+
+    :root {
+      --text-color: #00aa00;
+    }
+
+    body {
+      font-family: "Aldrich", sans-serif;
+      background-color: black;
+      color: #ccc;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: var(--text-color);
+      font-size: 50px;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      height: 70v;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .wb-body {
+      background: #111;
+      padding: 20px;
+    }
+
+    nav {
+      width: 30%;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    nav ul li {
+      color: var(--text-color);
+      cursor: pointer;
+    }
+
+    .cursor {
+      font-weight: 700;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      from,
+      to {
+        color: transparent;
+      }
+
+      50% {
+        color: var(--text-color);
+      }
+    }
+
+    @keyframes background_animation {
+      0% {
+        background-position: 0 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0 50%;
+      }
+    }
+
+    #work {
+      background-color: rgba(0, 140, 0, 0.2);
+      padding: 15px;
+      border-radius: 20px;
+      border: 1px solid #4DFF0B;
+    }
+
+    #school {
+      background-color: rgba(0, 0, 140, 0.2);
+      padding: 15px;
+      border-radius: 20px;
+      border: 1px solid #0BFFFF;
+    }
+  </style>
+</html>
